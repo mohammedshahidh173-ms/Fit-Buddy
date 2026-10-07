@@ -1,0 +1,9 @@
+.stage { min-height: calc(100vh - 4.5rem); display: flex; align-items: center; justify-content: center; padding: 2rem 1rem; }
+.card {
+  width: 100%; max-width: 500px; background: rgba(19, 17, 42, .92); border: 1px solid var(--cardio); border-radius: 16px;
+  padding: 1.6rem 1.7rem 1.8rem;
+}
+.card h1 { font-size: clamp(2.6rem, 9vw, 3.4rem); }
+.card .lede { margin: .7rem 0 .6rem; color: var(--muted); }
+.card .pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1rem; }
+.card button { width: 100%; margin-top: 1.6rem; }

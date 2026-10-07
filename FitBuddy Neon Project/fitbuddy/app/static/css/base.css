@@ -1,0 +1,72 @@
+:root {
+  --floor: #090813; --card: #13112a; --card-2: #1a1738; --ink: #f1eeff; --muted: #a29fc9; --line: #302c5c;
+  --strength: #22e4ff; --cardio: #ff3d9a; --mobility: #ffc933; --rest: #5dff9a;
+  --glow-strength: rgba(34, 228, 255, .55); --glow-cardio: rgba(255, 61, 154, .55);
+  --glow-mobility: rgba(255, 201, 51, .5); --glow-rest: rgba(93, 255, 154, .5);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; color: var(--ink); font: 17px/1.55 "Barlow", system-ui, sans-serif;
+  background:
+    radial-gradient(55rem 28rem at 90% -8%, rgba(255, 61, 154, .20), transparent 62%),
+    radial-gradient(48rem 30rem at -5% 108%, rgba(34, 228, 255, .16), transparent 62%),
+    var(--floor);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+h1, h2, h3 { margin: 0; line-height: 1.08; }
+h1 {
+  font: 400 clamp(2.6rem, 7vw, 4.6rem)/1.05 "Tilt Neon", "Barlow Condensed", sans-serif;
+  color: #ffe8f4; letter-spacing: .02em;
+}
+h2 { font: 700 1.7rem "Barlow Condensed", sans-serif; letter-spacing: .02em; color: #dffaff; }
+a { color: var(--strength); }
+:focus-visible { outline: 3px solid var(--strength); outline-offset: 3px; }
+
+.bar {
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  padding: 1rem clamp(1rem, 4vw, 2.5rem);
+  border-bottom: 1px solid var(--line);
+  background: rgba(9, 8, 19, .85);
+}
+.brand {
+  font: 400 1.9rem "Tilt Neon", sans-serif; color: #e6fcff; text-decoration: none; letter-spacing: .03em;
+}
+.bar a:not(.brand) { color: var(--ink); text-decoration-color: var(--cardio); text-underline-offset: 5px; }
+.bar a:not(.brand):hover { color: var(--cardio); }
+
+label { display: block; font-weight: 600; margin: 1rem 0 .3rem; }
+input, select, textarea {
+  width: 100%; font: inherit; padding: .65rem .8rem; border: 1.5px solid var(--line); border-radius: 8px;
+  background: #0c0b1f; color: var(--ink); transition: border-color .15s, box-shadow .15s;
+}
+input::placeholder, textarea::placeholder { color: #6f6c9a; }
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--strength); }
+small { display: block; color: var(--muted); margin-top: .3rem; font-size: .88rem; }
+button {
+  font: 600 1.05rem "Barlow", sans-serif; letter-spacing: .02em; padding: .75rem 1.5rem;
+  border: 2px solid var(--cardio); border-radius: 8px; background: transparent; color: #fff; cursor: pointer;
+  transition: background .15s, color .15s, box-shadow .15s;
+}
+button:hover { background: var(--cardio); color: #1a0010; }
+button:disabled { opacity: .6; cursor: wait; }
+
+.banner { margin: 1rem 0; padding: .7rem 1rem; border-left: 5px solid; border-radius: 6px; background: var(--card-2); }
+.banner.error { border-color: var(--cardio); }
+.banner.ok { border-color: var(--rest); }
+
+/* One orchestrated moment: the signs switch on with a flicker. */
+@keyframes neon-on {
+  0% { opacity: .15; } 8% { opacity: 1; } 12% { opacity: .2; } 20% { opacity: .9; }
+  24% { opacity: .3; } 40% { opacity: 1; } 46% { opacity: .55; } 54%, 100% { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) { h1, .brand { } * { transition: none !important; } }
+
+/* Simple neon: only the title and logo glow, softly. */
+h1 { text-shadow: 0 0 14px var(--glow-cardio); }
+.brand { text-shadow: 0 0 10px var(--glow-strength); }
+a { color: var(--strength); }
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--strength); }
+button { background: var(--cardio); color: #1a0010; border-color: var(--cardio); }
+button:hover { background: #ff6bb2; border-color: #ff6bb2; color: #1a0010; }
