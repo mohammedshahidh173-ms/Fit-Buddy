@@ -1,3 +1,4 @@
+Fit Buddy demo link video : https://drive.google.com/file/d/1vR-vfoEB1C06mgwt8ixQdcbOTcMPCPIR/view?usp=sharing
 # FitBuddy (Neon edition)
 
 FastAPI + Gemini workout planner with SQLite storage and a dark neon design.
